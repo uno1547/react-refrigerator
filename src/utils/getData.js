@@ -1,12 +1,24 @@
 import db from "./firebaseDB.js";
 import { collection, getDocs } from "firebase/firestore";
 
-const data = []
+/*
+const datas = []
 const querySnapshot = await getDocs(collection(db, "products"));
+
 querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  data.push(doc.data())
+  datas.push(doc.data())
 });
 
-export default data;
+export default datas;
+*/
+
+const getDataFunc = async () => {
+  const datas = []
+  const querySnapshot = await getDocs(collection(db, "products"));
+
+  querySnapshot.forEach((doc) => {
+    datas.push(doc.data())
+  });
+  return datas
+}
+export default getDataFunc
