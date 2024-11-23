@@ -21,4 +21,5 @@ const getDataFunc = async () => {
   });
   return datas
 }
+
 export default getDataFunc

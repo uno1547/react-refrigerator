@@ -8,13 +8,15 @@ const docRef = await addDoc(collection(db, "products"), {
 });
 */
 
-const addData = async () => {
+const addDataFunc = async () => {
+  console.log('데이터 추가하기');
   const docRef = await addDoc(collection(db, "products"), {
     name : "orange"
   })
+  console.log('데이터 추가완료');
 }
 
-export default addData;
+export default addDataFunc;
 /*
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
