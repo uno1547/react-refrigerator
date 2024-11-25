@@ -2,15 +2,22 @@ import { useState, useEffect } from "react";
 import getDataFunc from "../utils/getData.js"
 import addData from "../utils/addData.js";
 
+import ListHeader from "./ListHeader.js";
+import ListBody from "./ListBody.js";
+// import Product from "./Product.js";
+
 const ProductsList = () => {
-  console.log("list 컴포넌트 생성");
+  console.log("Productslist 컴포넌트 생성");
+
   const [productsArr, setProductsArr] = useState([]);
-  console.log(productsArr);
+
+  const [category, setCategory] = useState("date")
+  // console.log(productsArr);
 
   const fetchDatas = async () => {
-    console.log('데이터불러오기!!');
+    // console.log('데이터불러오기!!');
     const response = await getDataFunc() // data받아오기
-    console.log('응답받음');
+    // console.log('응답받음');
     setProductsArr(response) // 받아온 data로 state설정
   }
 
@@ -32,6 +39,8 @@ const ProductsList = () => {
   return (
     <div>
       이것은 품목리스트
+      <ListHeader setCategory = {setCategory} />
+      <ListBody productsArr = {productsArr} category = {category}/>
       <button onClick={onClickHandler}>stateChange</button>
     </div>
   )
