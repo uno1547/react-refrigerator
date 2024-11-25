@@ -37,12 +37,11 @@ const ProductsList = () => {
   }
 
   return (
-    <div>
-      이것은 품목리스트
+    <>
       <ListHeader setCategory = {setCategory} />
       <ListBody productsArr = {productsArr} category = {category}/>
-      <button onClick={onClickHandler}>stateChange</button>
-    </div>
+      {/* <button onClick={onClickHandler}>stateChange</button> */}
+    </>
   )
 }
 

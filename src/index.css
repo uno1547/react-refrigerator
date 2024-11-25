@@ -4,9 +4,14 @@ body {
 .inner {
   width: 500px;
   margin: auto;
+  padding: 20px;
   background-color: #b2b2b2;
   text-align: center;
 }
 h1 {
   margin-top: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
 }

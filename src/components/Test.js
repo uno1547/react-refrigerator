@@ -1,24 +1,9 @@
-import { useState, useEffect } from "react"
+import styles from "./Test.module.css"
 
-// const data = [1, 2, 3, 4, 5]
+import Select from "./Select.js"
+
+const arr = ["name", "date", "category"]
 const Test = () => {
-  const [state, setState] = useState([])
-  console.log('component');
-  console.log(state);
-  useEffect(() => {
-    console.log('useEffect!');
-    setState(prev => [...prev, 3])
-  }, [])
-  // const onClick = () => {
-  //   setState(prev => prev + 1)
-  // }
-
-  return (
-    <>
-      {/* <h1>{state}</h1> */}
-      {/* <button onClick={onClick}>state change</button> */}
-      {/* <button>state change</button> */}
-    </>
-  )
+  return (<Select options={arr}/>)
 }
 export default Test

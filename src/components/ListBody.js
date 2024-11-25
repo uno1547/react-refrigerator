@@ -23,10 +23,10 @@ const ListBody = ({ productsArr, category }) => {
     })
   } else {
     console.log('category정렬');
+    productsArr.sort((a, b) => {
+      
+    })
   }
-  productsArr.sort((a, b) => {
-    
-  })
 
   return (
     <>
