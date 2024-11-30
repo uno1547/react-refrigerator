@@ -7,10 +7,10 @@
   align-items: center; */
 }
 .expire {
-  color: blue;
+  color: red;
 }
 .discard {
-  color: red;
+  color: yellow;
 }
 
 .product_box {
@@ -48,7 +48,7 @@
 .product_info .categories span {
   border : 1px solid black;
   border-radius: 5px;
-  padding: 1px;
+  padding: 3px;
   margin-right: 3px;
 }
 

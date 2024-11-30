@@ -15,8 +15,11 @@ const Product = ({ product }) => {
           <Button text='edit'/>
         </div>
         <div className={`${styles.small} ${styles.categories}`}>
-          <span>유제품</span>
-          <span>냉장</span>
+          {/* <span>유제품</span>
+          <span>냉장</span> */}
+          {product.category.map((el, idx) => (
+            <span key={`${product.id}cat${idx}`}>{el}</span>
+          ))}
         </div>
       </div>
       {checkExpire(product) ? checkExpire(product) == "discard" ? <h2 className={styles.discard}>폐기 요망</h2> : <h2 className={styles.expire}>만료 임박</h2> : null}
