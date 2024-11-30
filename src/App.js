@@ -12,7 +12,7 @@ function App() {
       <ProductsList/>
       {/* <button onClick={() => {setShow(!show)}}>{show ? '제거' : '생성'}</button> */}
       {/* {show && <Test show = {show}/>} */}
-      {/* {<Test1/>} */}
+      {<Test1/>}
     </div>
   );
 }
