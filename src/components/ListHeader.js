@@ -18,7 +18,7 @@ const ListHeader = ({ setCategory }) => {
         <span>select view</span>
         <Select options = {["date", "name", "category"]} onChange = {changeHandler}/>
       </div>
-      <button className={btnStyles.button}><span class="material-symbols-outlined">search</span></button>
+      <button className={btnStyles.button}><span className="material-symbols-outlined">search</span></button>
     </div>
   )
 }

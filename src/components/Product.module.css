@@ -1,0 +1,74 @@
+.bold {
+  font-weight: bold;
+}
+.small {
+  font-size: 10px;
+  /* display: flex;
+  align-items: center; */
+}
+
+.product_box {
+  /* width: 500px; */
+  /* height: 50px; */
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 4px 0px;
+  border: 2px solid rgb(59, 59, 59);
+  border-radius: 5px;
+}
+
+.product_info {
+  text-align: start;
+}
+.product_info .count {
+  margin: 5px 0px;
+  display: flex;
+  align-items: center;
+}
+.product_info .count button {
+  margin: 0px 5px;
+  padding: 2px;
+  font-size: 8px;
+}
+.product_info .categories { 
+  /* margin: 5px 0px; */
+  display: flex;
+  font-weight: bold;
+  /* justify-content: space-between; */
+}
+
+.product_info .categories span {
+  border : 1px solid black;
+  border-radius: 5px;
+  padding: 1px;
+  margin-right: 3px;
+}
+
+.product_date_info {
+  /* display: flex; */
+  text-align: end;
+  position: relative;
+}
+
+.product_date_info div {
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+  /* position: absolute; */
+}
+
+.product_date_info .add {
+
+}
+
+.product_date_info .exp {
+
+}
+
+.product_date_info button {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}

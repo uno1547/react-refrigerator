@@ -7,7 +7,8 @@
   padding: 5px;
   cursor: pointer;
 
-  display: flex;
+  /* display: flex; */
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 }

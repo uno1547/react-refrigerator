@@ -1,4 +1,5 @@
 import Product from "./Product.js"
+import styles from "./ListBody.module.css"
 
 const ListBody = ({ productsArr, category }) => {
   console.log('ListBody 컴포넌트 생성');
@@ -29,13 +30,13 @@ const ListBody = ({ productsArr, category }) => {
   }
 
   return (
-    <>
+    <div className = {styles['list_body']}>
       <ul>
         {productsArr.map((product) => {
           return <Product product = {product} key={product.id}></Product>
         })}
       </ul>      
-    </>
+    </div>
   )
 }
 

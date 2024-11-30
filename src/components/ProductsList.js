@@ -12,12 +12,16 @@ const ProductsList = () => {
   const [productsArr, setProductsArr] = useState([]);
 
   const [category, setCategory] = useState("date")
+
+  const [loading, setLoading] = useState(false)
+
   // console.log(productsArr);
 
   const fetchDatas = async () => {
     // console.log('데이터불러오기!!');
     const response = await getDataFunc() // data받아오기
     // console.log('응답받음');
+    setLoading(true)
     setProductsArr(response) // 받아온 data로 state설정
   }
 
@@ -39,7 +43,7 @@ const ProductsList = () => {
   return (
     <>
       <ListHeader setCategory = {setCategory} />
-      <ListBody productsArr = {productsArr} category = {category}/>
+      {loading ? <ListBody productsArr = {productsArr} category = {category}/> : "로딩중"}
       {/* <button onClick={onClickHandler}>stateChange</button> */}
     </>
   )
