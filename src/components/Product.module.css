@@ -6,6 +6,12 @@
   /* display: flex;
   align-items: center; */
 }
+.expire {
+  color: blue;
+}
+.discard {
+  color: red;
+}
 
 .product_box {
   /* width: 500px; */

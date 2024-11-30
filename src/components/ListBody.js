@@ -1,12 +1,14 @@
 import Product from "./Product.js"
 import styles from "./ListBody.module.css"
+import {getExpireNum} from "../utils/reduceExpire.js";
 
 const ListBody = ({ productsArr, category }) => {
   console.log('ListBody 컴포넌트 생성');
+  console.log(productsArr);
   /*
   받은 category로 sort
   */
-  console.log(category);
+  console.log(category)
   if(category == "date") {
     console.log('date정렬');
     productsArr.sort((a, b) => {
@@ -31,6 +33,10 @@ const ListBody = ({ productsArr, category }) => {
 
   return (
     <div className = {styles['list_body']}>
+      <div className={styles.indicator}>
+        <span className={styles.small}>total number </span><span className={styles.bold}>{productsArr.length}</span>
+        <span className={styles.small}>expire number </span><span className={`${styles.bold} ${styles.expire}`}>{getExpireNum(productsArr)}</span>
+      </div>
       <ul>
         {productsArr.map((product) => {
           return <Product product = {product} key={product.id}></Product>

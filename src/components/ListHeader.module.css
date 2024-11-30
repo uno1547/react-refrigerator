@@ -1,6 +1,7 @@
 .header_flex_container {
   /* width: 300px; */
-  margin: auto;
+  /* margin: auto; */
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
 }

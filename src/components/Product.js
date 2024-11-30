@@ -1,7 +1,11 @@
 import styles from './Product.module.css'
 import Button from './Button'
+import {checkExpire} from '../utils/reduceExpire'
 
 const Product = ({ product }) => {
+
+
+
   return (
     <li className={styles.product_box}>
       <div className={styles.product_info}>
@@ -15,18 +19,22 @@ const Product = ({ product }) => {
           <span>냉장</span>
         </div>
       </div>
+      {checkExpire(product) ? checkExpire(product) == "discard" ? <h2 className={styles.discard}>폐기 요망</h2> : <h2 className={styles.expire}>만료 임박</h2> : null}
       <div className={`${styles.product_date_info} ${styles.small}`}>
         <div className={styles.add}>
-          <span >add date : </span><span className={styles.bold}>{product.add_date}</span>
+          <span >add date : </span><span className={styles.bold}>{` ${product.add_date}`}</span>
         </div>
         <div className={styles.exp}>
-          <span >expire date : </span><span className={styles.bold}>{product.expire_date}</span>
+          <span >expire date : </span><span className={`${styles.bold} ${ styles[checkExpire(product)]}`}>{` ${product.expire_date}`}</span>
+        </div>
+        <div>
+        {/* {checkExpire(product) == "discard" ? <span>폐기요망</span> : null} */}
         </div>
         <Button text='discard'/>
       </div>
     </li>
   )
 }
-
+// ${checkExpire(product) ? styles.red : null}
 
 export default Product

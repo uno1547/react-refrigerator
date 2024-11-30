@@ -1,4 +1,27 @@
+.small {
+  font-size: 13px;
+}
+
+.bold {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.expire {
+  color: blue;
+}
+
 .list_body {
   /* width: 300px; */
   /* background-color: blue; */
+  position: relative;
+}
+.list_body .indicator {
+  /* background-color: blue; */
+  position: absolute;
+  top: -20px;
+  left: 0px;
+}
+.list_body .indicator span {
+  margin-right: 4px;
 }
