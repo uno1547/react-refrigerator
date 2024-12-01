@@ -1,0 +1,52 @@
+.background {
+  position: fixed;
+  top: 0;
+  /* bottom: 0; */
+  left: 0;
+  /* right: 0; */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.7);
+}
+
+.modal_container {
+  width: 300px;
+  height: 150px;
+  background-color: #ecc7c7;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  /* position: relative; */
+}
+
+.modal_container button {
+  /* position: absolute; */
+  margin: 0px 5px;
+}
+
+.modal_container .btn_area {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+button.cancle {
+  left: 0px;
+  bottom: 0px;
+}
+
+button.run {
+  
+}
