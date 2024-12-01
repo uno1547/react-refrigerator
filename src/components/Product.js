@@ -1,9 +1,20 @@
+import { useState } from 'react'
+import { createPortal } from 'react-dom'
+
 import styles from './Product.module.css'
 import Button from './Button'
+import Modal from './Modal'
+
 import {checkExpire} from '../utils/reduceExpire'
 import deleteData from '../utils/deleteData'
 
 const Product = ({ product, fetchDatas }) => {
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const modalHandler = (evt) => {
+    if(evt) evt.stopPropagation()
+    setModalOpen(prev => !prev)
+  }
 
   const deleteHandler = async () => {
     /*
@@ -13,6 +24,7 @@ const Product = ({ product, fetchDatas }) => {
     */
     deleteData(product.id)
     fetchDatas()
+    modalHandler()
   }
 
   return (
@@ -21,7 +33,7 @@ const Product = ({ product, fetchDatas }) => {
         <div className={styles.bold}>{product.name}</div>
         <div className={`${styles.count} ${styles.small}`}>
           <span>수량 : </span><span className={styles.bold}>{product.amount}개</span>     
-          <Button text='edit' handler={deleteHandler}/>
+          <Button text='edit'/>
         </div>
         <div className={`${styles.small} ${styles.categories}`}>
           {/* <span>유제품</span>
@@ -42,7 +54,10 @@ const Product = ({ product, fetchDatas }) => {
         <div>
         {/* {checkExpire(product) == "discard" ? <span>폐기요망</span> : null} */}
         </div>
-        <Button text='discard' handler={deleteHandler}/>
+        <Button text='discard' handler={modalHandler}/>
+        {modalOpen ? createPortal(
+          <Modal mainText='discard' subText= 'Really want to discard?' close={modalHandler} deleteHandler = {deleteHandler}/>, document.body
+        ) : null}
       </div>
     </li>
   )

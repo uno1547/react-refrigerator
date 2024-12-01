@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styles from './Modal.module.css'
 import Button from './Button'
 
-const Modal = ({mainText, subText, close}) => {
+const Modal = ({mainText, subText, close, deleteHandler}) => {
 
   return (
   <div className={styles.background} onClick={close}>
@@ -15,7 +15,7 @@ const Modal = ({mainText, subText, close}) => {
         {/* <button className={styles.cancle}>cancle</button> */}
         {/* <button className={styles.run}>discard</button> */}
         <Button text = 'cancle' handler={close}/>
-        <Button text = 'discard' handler={close}/>
+        <Button text = 'discard' handler={deleteHandler}/>
       </div>
     </div>
   </div>)
