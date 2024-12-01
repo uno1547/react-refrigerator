@@ -2,7 +2,7 @@ import Product from "./Product.js"
 import styles from "./ListBody.module.css"
 import {getExpireNum} from "../utils/reduceExpire.js";
 
-const ListBody = ({ productsArr, category }) => {
+const ListBody = ({ productsArr, category, fetchDatas }) => {
   console.log('ListBody 컴포넌트 생성');
   console.log(productsArr);
   /*
@@ -15,7 +15,7 @@ const ListBody = ({ productsArr, category }) => {
       // console.log(a.expire_date - b.expire_date);
       if(a.expire_date < b.expire_date) return -1
       else if(a.expire_date > b.expire_date) return 1
-      else return 0 
+      // else return 0 
     })
   } else if(category == "name") {
     console.log('name정렬');
@@ -39,7 +39,7 @@ const ListBody = ({ productsArr, category }) => {
       </div>
       <ul>
         {productsArr.map((product) => {
-          return <Product product = {product} key={product.id}></Product>
+          return <Product product = {product} key={product.id} fetchDatas = {fetchDatas}></Product>
         })}
       </ul>      
     </div>

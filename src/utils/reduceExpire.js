@@ -11,12 +11,12 @@ function getExpireNum(arr) {
   });
   */
   const expireNum = arr.reduce((acc, val) => {
-    console.log(acc, val)
+    // console.log(acc, val)
     const dateQuery = val.expire_date.split('-').map(Number)
     let [year, month, date] = [...dateQuery]
     const expireDate = new Date(year, month - 1, date)
     const result = getDiff(today, expireDate)
-    console.log(result);
+    // console.log(result);
     if(result >0 && result <= 7) {
       return acc + 1
     } else {

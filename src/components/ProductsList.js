@@ -20,8 +20,8 @@ const ProductsList = () => {
   const fetchDatas = async () => {
     // console.log('데이터불러오기!!');
     const response = await getDataFunc() // data받아오기
-    // console.log('응답받음');
-    setLoading(true)
+    // console.log('응답받음')
+    setLoading(true) // 최초 로딩에 대해서는 false인상태였다가 바뀌는데, 
     setProductsArr(response) // 받아온 data로 state설정
   }
 
@@ -43,7 +43,7 @@ const ProductsList = () => {
   return (
     <>
       <ListHeader setCategory = {setCategory} />
-      {loading ? <ListBody productsArr = {productsArr} category = {category}/> : "로딩중"}
+      {loading ? <ListBody productsArr = {productsArr} category = {category} fetchDatas={fetchDatas}/> : "로딩중"}
       {/* <button onClick={onClickHandler}>stateChange</button> */}
     </>
   )
