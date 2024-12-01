@@ -1,5 +1,5 @@
 import db from "./firebaseDB.js";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, doc, setDoc } from "firebase/firestore"; 
 // Add a new document with a generated id.
 /*
 const docRef = await addDoc(collection(db, "products"), {
@@ -10,14 +10,27 @@ const docRef = await addDoc(collection(db, "products"), {
 
 const addDataFunc = async () => {
   console.log('데이터 추가하기');
+  const docRef = doc(collection(db, "products")) // 무작위 docRef를생성한다.
+  await setDoc(docRef, {
+    name : "해리",
+    category : ["person", "fridge"],
+    amount : 1,
+    id : docRef["_key"].path.segments[1],
+    add_date : "2024-12-01",
+    expire_date : "2024-12-12"
+  })
+  console.log('데이터 추가하기 완료');
+/*
+  console.log('데이터 추가하기');
   const docRef = await addDoc(collection(db, "products"), {
-    name : "pork", // 품목명
-    category : "fruit", // 품목구분
+    name : "주은", // 품목명
+    category : ["person"], // 품목구분
     amount : 5, //수량
-    add_date : "20241121", // 추가날짜
-    expire_date : "20241112"// 만료날짜(유통기한)
+    add_date : "2024-12-01", // 추가날짜
+    expire_date : "2024-12-12"// 만료날짜(유통기한)
   })
   console.log('데이터 추가완료');
+  */
 }
 
 export default addDataFunc;
