@@ -27,10 +27,13 @@
 }
 
 .product_box .notice {
+  width: 160px;
+  height: 30px;
   position: absolute;
-  /* top: 0px; */
-  /* bottom: 0px; */
+  top: 0px;
+  bottom: 0px;
   /* margin: auto; */
+  margin: auto;
   left: 0px;
   right: 0px;
 }
@@ -47,7 +50,7 @@
   margin: 0px 5px;
   padding: 2px;
   font-size: 8px;
-  z-index: 2;
+  /* z-index: 2; */
 }
 .product_info .categories { 
   /* margin: 5px 0px; */

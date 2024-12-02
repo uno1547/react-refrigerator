@@ -12,7 +12,7 @@ const Product = ({ product, fetchDatas }) => {
   const [modalOpen, setModalOpen] = useState(false)
 
   const modalHandler = (evt) => {
-    if(evt) evt.stopPropagation()
+    // if(evt) evt.stopPropagation()
     setModalOpen(prev => !prev)
   }
 
@@ -33,7 +33,10 @@ const Product = ({ product, fetchDatas }) => {
         <div className={styles.bold}>{product.name}</div>
         <div className={`${styles.count} ${styles.small}`}>
           <span>수량 : </span><span className={styles.bold}>{product.amount}개</span>     
-          <Button text='edit'/>
+          <Button text='edit' handler={modalHandler} />
+          {/* {modalOpen ? createPortal(
+            <Modal mainText='edit' subText= 'select amount' close={modalHandler}/>, document.body
+          ) : null} */}
         </div>
         <div className={`${styles.small} ${styles.categories}`}>
           {/* <span>유제품</span>
