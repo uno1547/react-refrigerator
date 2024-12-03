@@ -38,6 +38,7 @@ const DiscardModal = ({mainText, subText, closeHandler, deleteHandler}) => {
 }
 
 const EditModal = ({ mainText, subText, closeHandler, editsHandler, value}) => {
+// const EditModal = ({ mainText, subText, closeHandler, editsHandler}) => {
   console.log('edit컴포넌트!!');
   const [number, setNumber] = useState(value)
 
@@ -50,7 +51,6 @@ const EditModal = ({ mainText, subText, closeHandler, editsHandler, value}) => {
         <span className={`${styles.close} ${'trigger'}`} >&times;</span>
         <h4>{mainText}</h4>
         <span>{subText}</span>
-        {/* <input></input> */}
         <input type='number' value={number} onChange={onChange}/>
         <div className={styles.btn_area}>
           <Button text = 'cancle' className = 'trigger'/>

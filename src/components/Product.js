@@ -10,6 +10,7 @@ import deleteData from '../utils/deleteData'
 import updateData from '../utils/updateData'
 
 const Product = ({ product, fetchDatas }) => {
+  console.log('product component');
   const [discardModalOpen, setDiscardModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
 
@@ -28,6 +29,7 @@ const Product = ({ product, fetchDatas }) => {
   }
 
   const discardHandler = async () => {
+    console.log('비동기시작');
     /*
     1. 클릭시
     2. firebase 삭제
@@ -40,24 +42,29 @@ const Product = ({ product, fetchDatas }) => {
   }
 
   const editModalHandler = (evt) => {
-    if(!evt) {
-      console.log('이벤트없음');
+    if(!evt) { //이벤트 없을때 editHandler에 의한 호출
+      // console.log('이벤트없음');
     // setModalOpen(prev => !prev)
       return
     } else if(!evt.target.classList.contains("trigger")) {
-      console.log('trigger없음');
+      const target = evt.target
+      // console.log(target,'trigger없음');
       return
     }
     console.log('edit 창 닫을게요!');
-    console.log(editModalOpen);
+    // console.log(editModalOpen);
     setEditModalOpen(prev => !prev)
+    // setEditModalOpen(!editModalOpen)
   }
+
   const editHandler = async (value) => {
+    console.log(`value ${value}로 수정!!!!!`);
     await updateData(product.id, value)
     fetchDatas()
     console.log('제출!!');
     editModalHandler()
   }
+
   return (
     <li className={styles.product_box}>
       <div className={styles.product_info}>
