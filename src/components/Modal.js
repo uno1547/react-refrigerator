@@ -43,6 +43,8 @@ const EditModal = ({ mainText, subText, closeHandler, editsHandler, prevVal}) =>
   const [number, setNumber] = useState(prevVal)
 
   const onChange = (evt) => {
+    console.log(evt.target.value);
+    if(evt.target.value == -1) return
     setNumber(evt.target.value)
   }
   return (
@@ -51,7 +53,7 @@ const EditModal = ({ mainText, subText, closeHandler, editsHandler, prevVal}) =>
         <span className={`${styles.close} ${'trigger'}`} >&times;</span>
         <h4>{mainText}</h4>
         <span>{subText}</span>
-        <input type='number' value={number} onChange={onChange}/>
+        <input type='number' value={number} onChange={onChange}/>개
         <div className={styles.btn_area}>
           <Button text = 'cancle' className = 'trigger'/>
           {/* <Button text = 'edit' handler={() => editHandler(number)} /> */}
@@ -98,6 +100,7 @@ const StateModal = ({closeHandler, bHandler, value}) => {
   const [number, setNumber] = useState(value)
 
   const onChange = (evt) => {
+    console.log(evt.target.value);
     setNumber(evt.target.value)
   }
   return (
