@@ -13,18 +13,22 @@ const Product = ({ product, fetchDatas }) => {
   console.log('product component');
   const [discardModalOpen, setDiscardModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
+  console.log('discard창', discardModalOpen);
+  console.log('edit창', editModalOpen);
 
   const discardModalHandler = (evt) => {
+    console.log('모달핸들러호출!!');
     if(!evt) {
       console.log('이벤트없음');
     // setModalOpen(prev => !prev)
       return
     } else if(!evt.target.classList.contains("trigger")) {
-      console.log('trigger없음');
+      const target = evt.target
+      console.log(target,'trigger없음');
       return
     }
     console.log('discard 창 닫을게요!');
-    console.log(discardModalOpen);
+    // console.log(discardModalOpen);
     setDiscardModalOpen(prev => !prev)
   }
 
@@ -42,26 +46,29 @@ const Product = ({ product, fetchDatas }) => {
   }
 
   const editModalHandler = (evt) => {
+    console.log('모달핸들러호출!!');
     if(!evt) { //이벤트 없을때 editHandler에 의한 호출
-      // console.log('이벤트없음');
+      console.log('이벤트없음');
     // setModalOpen(prev => !prev)
       return
     } else if(!evt.target.classList.contains("trigger")) {
       const target = evt.target
-      // console.log(target,'trigger없음');
+      console.log(target,'trigger없음');
       return
     }
     console.log('edit 창 닫을게요!');
     // console.log(editModalOpen);
-    setEditModalOpen(prev => !prev)
     // setEditModalOpen(!editModalOpen)
+    setEditModalOpen(prev => !prev)
   }
 
   const editHandler = async (value) => {
-    console.log(`value ${value}로 수정!!!!!`);
+    console.log(`비동기 시작 ${value}로 수정`);
     await updateData(product.id, value)
-    fetchDatas()
     console.log('제출!!');
+    console.log('이제 데이터 갱신');
+    fetchDatas()
+    console.log('데이터 갱신완료');
     editModalHandler()
   }
 
@@ -73,7 +80,7 @@ const Product = ({ product, fetchDatas }) => {
           <span>수량 : </span><span className={styles.bold}>{product.amount}개</span>     
           <Button text='edit' handler={editModalHandler} className='trigger'/>
           {editModalOpen ? createPortal(
-            <EditModal mainText='edit' subText= 'select amount' closeHandler={editModalHandler} editsHandler={editHandler} value ={product.amount}/>, document.body
+            <EditModal mainText='edit' subText= 'select amount' closeHandler={editModalHandler} editsHandler={editHandler} prevVal ={product.amount}/>, document.body
           ) : null}
         </div>
         <div className={`${styles.small} ${styles.categories}`}>
