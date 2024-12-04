@@ -10,30 +10,22 @@ import deleteData from '../utils/deleteData'
 import updateData from '../utils/updateData'
 
 const Product = ({ product, fetchDatas }) => {
-  console.log('product component');
+  // console.log('product component');
   const [discardModalOpen, setDiscardModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
-  console.log('discard창', discardModalOpen);
-  console.log('edit창', editModalOpen);
+  // console.log('discard창', discardModalOpen);
+  // console.log('edit창', editModalOpen);
 
   const discardModalHandler = (evt) => {
-    console.log('모달핸들러호출!!');
-    if(!evt) {
-      console.log('이벤트없음');
-    // setModalOpen(prev => !prev)
-      return
-    } else if(!evt.target.classList.contains("trigger")) {
-      const target = evt.target
-      console.log(target,'trigger없음');
+    if(evt && !evt.target.classList.contains('trigger')) { // 클릭에의해 트리거, 버블링 포함
+      // 버튼아닌곳 클릭시에만 리턴하기
       return
     }
-    console.log('discard 창 닫을게요!');
-    // console.log(discardModalOpen);
     setDiscardModalOpen(prev => !prev)
   }
 
   const discardHandler = async () => {
-    console.log('비동기시작');
+    // console.log('비동기시작');
     /*
     1. 클릭시
     2. firebase 삭제
@@ -46,29 +38,20 @@ const Product = ({ product, fetchDatas }) => {
   }
 
   const editModalHandler = (evt) => {
-    console.log('모달핸들러호출!!');
-    if(!evt) { //이벤트 없을때 editHandler에 의한 호출
-      console.log('이벤트없음');
-    // setModalOpen(prev => !prev)
-      return
-    } else if(!evt.target.classList.contains("trigger")) {
-      const target = evt.target
-      console.log(target,'trigger없음');
+    // 1 trigger클래스의 클릭이벤트에의해 닫히기 (evt O, trigger O)
+    // 2 evt없이 직접 호출 (evt X)
+    // 예외 : evt O, trigger X 
+    if(evt && !evt.target.classList.contains('trigger')) { // 클릭에의해 트리거, 버블링 포함
+      // 버튼아닌곳 클릭시에만 리턴하기
       return
     }
-    console.log('edit 창 닫을게요!');
-    // console.log(editModalOpen);
-    // setEditModalOpen(!editModalOpen)
     setEditModalOpen(prev => !prev)
+    // setEditModalOpen(prev => !prev)
   }
 
   const editHandler = async (value) => {
-    console.log(`비동기 시작 ${value}로 수정`);
     await updateData(product.id, value)
-    console.log('제출!!');
-    console.log('이제 데이터 갱신');
     fetchDatas()
-    console.log('데이터 갱신완료');
     editModalHandler()
   }
 

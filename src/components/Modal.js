@@ -22,7 +22,7 @@ const Modal = ({mainText, subText, closeHandler, deleteHandler}) => {
 export default Modal;
 
 const DiscardModal = ({mainText, subText, closeHandler, deleteHandler}) => {
-  console.log('discard컴포넌트!');
+  // console.log('discard컴포넌트!');
   return (
     <div className={`${styles.background} ${'trigger'}`} onClick={closeHandler}>
       <div className={styles.modal_container}>
